@@ -1,0 +1,6 @@
+# HealthAIApp
+Part of a group project for SOFT7003. 
+This repository is responsible for managing the API and Machine Learning component of the project
+
+## Main Repo
+[Health AI Group Project](https://github.com/PatrykD22/healthaigroupproject)
