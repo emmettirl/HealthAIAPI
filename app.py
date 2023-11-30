@@ -1,8 +1,8 @@
 from flask import Flask, jsonify
 import keras
+import pandas as pd
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def hello_world():  # The front page
@@ -16,3 +16,9 @@ def hello_world_API():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+data = pd.read_csv('data/symptomsAndDiseases.csv')
+
+print(data.head())
+
