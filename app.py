@@ -1,13 +1,17 @@
 from flask import Flask, jsonify
-import keras
-import pandas as pd
 
+from disease_predictor import DiseasePredictor
 app = Flask(__name__)
+
+dataset = "data/dataset.csv"
+ml_model = DiseasePredictor(dataset)
 
 @app.route('/')
 def hello_world():  # The front page
 
-    return f'Hello World!\nKeras Version {keras.__version__}'
+    symptoms_list, prediction = ml_model.model_test_random_symptoms()
+
+    return f'\n {symptoms_list} \n{prediction}'
 
 
 @app.route('/hello', methods=['GET']) # An API function
@@ -16,9 +20,3 @@ def hello_world_API():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-data = pd.read_csv('data/symptomsAndDiseases.csv')
-
-print(data.head())
-
