@@ -16,10 +16,10 @@ def hello_world():  # The front page
 
 
 
-@app.route('/sumptomsList', methods=['POST'])
+@app.route('/symptomsList', methods=['POST'])
 def get_symptom_list_API():
     symptomLabels = ml_model.get_symptom_labels(ml_model.one_hot_encoded_df_cleaned)
-    return jsonify({symptomLabels})
+    return jsonify({'symptoms': symptomLabels})
 
 
 @app.route('/predictAI', methods=['POST'])
