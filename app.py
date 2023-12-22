@@ -28,6 +28,7 @@ def get_symptom_list_API():
 def predict_disease_API():
     symptoms_list = request.args.getlist('symptom')
     prediction = ml_model.predict_disease(symptoms_list)
+    print(prediction)
     return prediction
 
 @app.route('/hello', methods=['GET']) # An API function
