@@ -83,8 +83,10 @@ class DiseasePredictor:
         # test function, generates a random list of symptoms, and feeds it to the predictor.
         symptom_labels = self.get_symptom_labels(self.one_hot_encoded_df_cleaned)
         random_subset = sample(symptom_labels, randint(1, 5))
+        print(type(random_subset))
         prediction = self.predict_disease(random_subset)
         return random_subset, prediction
+
 
 def main():
     dataset = "data/dataset.csv"
